@@ -9,7 +9,7 @@
     "lint": "next lint",
     "release": "commit-and-tag-version",
     "prepare": "husky",
-    "postinstall": "prisma generate && prisma migrate deploy"
+    "postinstall": "prisma generate --no-engine"
   },
   "dependencies": {
     "@clerk/nextjs": "^6.19.4",

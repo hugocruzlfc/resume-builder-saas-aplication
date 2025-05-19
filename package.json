@@ -52,6 +52,7 @@
     "@tailwindcss/typography": "^0.5.16",
     "@types/node": "^20",
     "@types/react": "19.1.0",
+    "@types/react-color": "^3.0.13",
     "@types/react-dom": "19.1.2",
     "commitizen": "^4.3.1",
     "cz-conventional-changelog": "^3.3.0",

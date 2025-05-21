@@ -1,4 +1,4 @@
-import ResumeEditor from "@/components/resume/resume-editor";
+import ResumeEditor from "@/components/editor/resume-editor";
 import prisma from "@/lib/prisma";
 import { resumeDataInclude } from "@/lib/types";
 import { auth } from "@clerk/nextjs/server";

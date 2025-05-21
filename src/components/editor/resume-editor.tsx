@@ -53,10 +53,10 @@ export default function ResumeEditor({ resumeToEdit }: ResumeEditorProps) {
         </p>
       </header>
       <main className="relative grow">
-        <div className="absolute top-0 bottom-0 flex w-full">
+        <div className="flex w-full">
           <div
             className={cn(
-              "w-full space-y-6 overflow-y-auto p-3 md:block md:w-1/2",
+              "w-full space-y-6 p-3 md:block md:w-1/2",
               showSmResumePreview && "hidden",
             )}
           >

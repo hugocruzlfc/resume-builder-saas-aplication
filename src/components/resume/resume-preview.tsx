@@ -6,7 +6,7 @@ import { ResumeValues } from "@/lib/validations";
 import { formatDate } from "date-fns";
 import Image from "next/image";
 import { useEffect, useRef, useState } from "react";
-import { Badge } from "./ui/badge";
+import { Badge } from "../ui/badge";
 
 interface ResumePreviewProps {
   resumeData: ResumeValues;

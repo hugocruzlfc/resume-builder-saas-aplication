@@ -5,7 +5,7 @@ import { ResumeValues } from "@/lib/validations";
 import { WandSparklesIcon } from "lucide-react";
 import { useState } from "react";
 import { toast } from "sonner";
-import LoadingButton from "./loading-buton";
+import LoadingButton from "./loading-button";
 
 interface GenerateSummaryButtonProps {
   resumeData: ResumeValues;

@@ -28,7 +28,7 @@ import { WandSparklesIcon } from "lucide-react";
 import { useState } from "react";
 import { useForm } from "react-hook-form";
 import { toast } from "sonner";
-import LoadingButton from "./loading-buton";
+import LoadingButton from "./loading-button";
 
 interface GenerateWorkExperienceButtonProps {
   onWorkExperienceGenerated: (workExperience: WorkExperience) => void;

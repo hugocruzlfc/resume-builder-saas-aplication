@@ -1,10 +1,11 @@
 import "server-only";
 
 import prisma from "@/lib/prisma";
+import { getUserSubscriptionLevel } from "@/lib/subscription";
 import { resumeDataInclude } from "@/lib/types";
 
 export async function getResumes(userId: string) {
-  const [resumes, totalCount] = await Promise.all([
+  const [resumes, totalCount, subscriptionLevel] = await Promise.all([
     prisma.resume.findMany({
       where: {
         userId,
@@ -19,6 +20,7 @@ export async function getResumes(userId: string) {
         userId,
       },
     }),
+    getUserSubscriptionLevel(userId),
   ]);
-  return { resumes, totalCount };
+  return { resumes, totalCount, subscriptionLevel };
 }

@@ -1,13 +1,11 @@
 import { Button } from "@/components/ui/button";
+import usePremiumModal from "@/hooks/use-premium";
+import { BORDER_STYLES } from "@/lib/constant";
+import { canUseCustomizations } from "@/lib/permission";
 import { Circle, Square, Squircle } from "lucide-react";
+import { useSubscriptionLevel } from "../subscription-level-providers";
 
-export const BorderStyles = {
-  SQUARE: "square",
-  CIRCLE: "circle",
-  SQUIRCLE: "squircle",
-};
-
-const borderStyles = Object.values(BorderStyles);
+const borderStyles = Object.values(BORDER_STYLES);
 
 interface BorderStyleButtonProps {
   borderStyle: string | undefined;
@@ -18,7 +16,16 @@ export default function BorderStyleButton({
   borderStyle,
   onChange,
 }: BorderStyleButtonProps) {
+  const subscriptionLevel = useSubscriptionLevel();
+
+  const premiumModal = usePremiumModal();
+
   function handleClick() {
+    if (!canUseCustomizations(subscriptionLevel)) {
+      premiumModal.setOpen(true);
+      return;
+    }
+
     const currentIndex = borderStyle ? borderStyles.indexOf(borderStyle) : 0;
     const nextIndex = (currentIndex + 1) % borderStyles.length;
     onChange(borderStyles[nextIndex]);

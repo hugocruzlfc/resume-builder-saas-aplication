@@ -1,6 +1,7 @@
 import CreateResumeButton from "@/components/buttons/create-resume-button";
 import ResumeItem from "@/components/resume/resume-item";
 import { getResumes } from "@/data-layer/resume";
+import { canCreateResume } from "@/lib/permission";
 import { auth } from "@clerk/nextjs/server";
 import { Metadata } from "next";
 
@@ -15,13 +16,15 @@ export default async function Page() {
     return null;
   }
 
-  const { resumes, totalCount } = await getResumes(userId);
+  const { resumes, totalCount, subscriptionLevel } = await getResumes(userId);
 
   // TODO: Check quota for non-premium users
 
   return (
     <main className="mx-auto w-full max-w-7xl space-y-6 px-3 py-6">
-      <CreateResumeButton canCreate={totalCount < 3} />
+      <CreateResumeButton
+        canCreate={canCreateResume(subscriptionLevel, totalCount)}
+      />
       <div className="space-y-1">
         <h1 className="text-3xl font-bold">Your resumes</h1>
         <p>Total: {totalCount}</p>

@@ -1,6 +1,6 @@
 import { cn } from "@/lib/utils";
 import { ResumeValues } from "@/lib/validations";
-import BorderStyleButton from "../border-style-button";
+import BorderStyleButton from "../buttons/border-style-button";
 import ResumePreview from "../resume/resume-preview";
 import ColorPicker from "./color-picker";
 
